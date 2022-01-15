@@ -2,21 +2,15 @@
 window.Config = {
 
   // 站点名
-  SiteName: 'Uptime Status',
+  SiteName: 'JK-Network Looking glass',
 
   // 站点链接
   SiteUrl: '/',
 
-  // UptimeRobot Api 域名
-  // 只需填写域名部分，默认为官网域名
-  // 因官网 API 时不时的会 CROS 报错，可填自定义反代域名
-  // 详见说明
-  ApiDomain: 'uptime-status.qikaile.workers.dev',
-
   // UptimeRobot Api Keys
   // 支持 Monitor-Specific 和 Read-Only 两只 Api Key
   ApiKeys: [
-    'ur1078385-b9802a0868414b8a975d5038',
+    'ur1587435-6c14fff2aa246ab30ea6bc60',
     /*
     'm786322663-402cd609baf66832d847ef63',
     'm786322674-0773b2c046e85a9cd3344aa8',
@@ -42,12 +36,8 @@ window.Config = {
   // 导航栏菜单
   Navi: [
     {
-      text: 'Homepage',
-      url: 'https://tjys.now.sh/'
-    },
-    {
-      text: 'GitHub',
-      url: 'https://github.com/qikaile/uptime-status'
+      text: 'Peering Info',
+      url: 'https://net.whojk.com/'
     }
   ]
 };

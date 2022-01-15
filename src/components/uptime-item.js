@@ -11,27 +11,35 @@ const UptimeItem = (props) => {
   const { monitor } = props;
 
   const status = {
-    ok: '正常',
-    down: '无法访问',
-    unknow: '未知'
+    ok: 'Operational',
+    down: 'Down',
+    unknow: 'Unknown'
   };
 
   const total = useMemo(() => {
     return monitor.total.times
-      ? `最近 ${CountDays} 天故障 ${monitor.total.times} 次，累计 ${formatDuration(monitor.total.duration)}，平均可用率 ${monitor.average}%`
-      : `最近 ${CountDays} 天可用率 ${monitor.average}%`;
+      ? `Error events: ${monitor.total.times} in recent ${CountDays} days. Total: ${formatDuration(monitor.total.duration)} Overall Uptime: ${monitor.average}%`
+      : `Overall Uptime: ${monitor.average}% in recent ${CountDays} days.`;
   }, [CountDays, monitor]);
 
   const initial = useMemo(() => {
     return monitor.daily[monitor.daily.length - 1].date;
   }, [monitor]);
 
+  let SiteTitle = <span className="name">{htmr(monitor.name)}</span>
+
+  if (ShowLink){
+    SiteTitle = <a href={monitor.url}>
+      <span className="name">{htmr(monitor.name)}</span>
+      <Link className="link" to={monitor.url} text={""} />
+    </a>
+  }
+
   return (
     <div className="item">
       <div className="meta">
         <div className="info">
-          <span className="name">{htmr(monitor.name)}</span>
-          {ShowLink && <Link className="link" to={monitor.url} text={htmr(monitor.name)} />}
+        {SiteTitle}
         </div>
         <div className={`status ${monitor.status}`}>{status[monitor.status]}</div>
       </div>
@@ -42,7 +50,7 @@ const UptimeItem = (props) => {
       </div>
       <ReactTooltip className="tooltip" place="top" type="dark" effect="solid" />
       <div className="foot">
-        <span>今天</span>
+        <span>Today</span>
         <span>{total}</span>
         <span>{initial.format('YYYY-MM-DD')}</span>
       </div>
