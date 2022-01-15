@@ -27,6 +27,10 @@ window.Config = {
     */
   ],
 
+  URLreplacer : function (orgurl){
+    return orgurl.replace("http://", 'https://').replace(".vm.", '.').replace(":23000", '');
+  },
+
   // 是否显示监测站点的链接
   ShowLink: true,
 

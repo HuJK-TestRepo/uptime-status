@@ -5,6 +5,8 @@ import UptimeBlock from './uptime-block';
 import Link from './link';
 import { formatDuration } from '../utils/helper';
 
+const { URLreplacer } = window.Config;
+
 const UptimeItem = (props) => {
 
   const { ShowLink, CountDays } = window.Config;
@@ -31,7 +33,7 @@ const UptimeItem = (props) => {
   if (ShowLink){
     SiteTitle = <a href={monitor.url}>
       <span className="name">{htmr(monitor.name)}</span>
-      <Link className="link" to={monitor.url} text={""} />
+      <Link className="link" to={URLreplacer(monitor.url)} text={""} />
     </a>
   }
 

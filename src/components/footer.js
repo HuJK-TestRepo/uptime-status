@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <div id="footer">
       <div className="container">
-        <p>基于 <Link to="https://uptimerobot.com/" text="UptimeRobot" /> 接口制作，检测频率 5 分钟</p>
-        <p>&copy; 2020-2021 <Link to="https://tjys.now.sh/" text="TJYS" /></p>
+        <p>Based on <Link to="https://uptimerobot.com/" text="UptimeRobot" /> API.</p>
+        <p><Link to="https://github.com/HuJK/uptime-status" text="Source Code" /></p>
       </div>
     </div>
   );
