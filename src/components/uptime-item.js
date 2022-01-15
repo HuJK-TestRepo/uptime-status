@@ -31,9 +31,9 @@ const UptimeItem = (props) => {
   let SiteTitle = <span className="name">{htmr(monitor.name)}</span>
 
   if (ShowLink){
-    SiteTitle = <a href={monitor.url}>
+    SiteTitle = 
+    <a href={URLreplacer(monitor.url)}>
       <span className="name">{htmr(monitor.name)}</span>
-      <Link className="link" to={URLreplacer(monitor.url)} text={""} />
     </a>
   }
 
@@ -42,7 +42,10 @@ const UptimeItem = (props) => {
       <div className="meta">
         <div className="info">
         {SiteTitle}
+        {ShowLink && <Link className="link" to={URLreplacer(monitor.url)} text={htmr(monitor.name)} />}
         </div>
+        <div className="expand"></div>
+        <div className="foot">{total}</div>
         <div className={`status ${monitor.status}`}>{status[monitor.status]}</div>
       </div>
       <div className="timeline">
@@ -51,11 +54,6 @@ const UptimeItem = (props) => {
         ))}
       </div>
       <ReactTooltip className="tooltip" place="top" type="dark" effect="solid" />
-      <div className="foot">
-        <span>Today</span>
-        <span>{total}</span>
-        <span>{initial.format('YYYY-MM-DD')}</span>
-      </div>
     </div>
   );
 }

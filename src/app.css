@@ -195,6 +195,10 @@ a {
   line-height: 15px;
   color: #999FA6;
 }
+#uptime .expand {
+  flex-grow: 100;
+}
+
 
 #footer {
   text-align: center;
