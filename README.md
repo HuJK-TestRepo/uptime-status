@@ -30,34 +30,9 @@
 #### 访问域名，你也可以绑定自定义域名
 ![](https://cdn.jsdelivr.net/gh/Qikaile/cdn/img/2021-02-15-05.png)
 
-你也可以使用Vercel部署网站，登录[vercel官网](https://vercel.com/)注册账号并绑定github,导入新项，选择导入Git存储库，选择个人账号，点击部署。
+修改 `config.js` 
 
-
-### 基于 Cloudflare Workers 搭建 UptimeRobot API 代理，以解决官网 API 跨域问题
-
-Build an UptimeRobot API proxy based on **Cloudflare Workers** to solve the cross-domain issue of official API
-
-```
-const handleRequest = async ({ request }) => {
-  let url = new URL(request.url);
-  let response = await fetch('https://api.uptimerobot.com' + url.pathname, request);
-  response = new Response(response.body, response);
-  response.headers.set('Access-Control-Allow-Origin', '*');
-  response.headers.set('Access-Control-Allow-Methods', '*');
-  response.headers.set('Access-Control-Allow-Credentials', 'true');
-  response.headers.set('Access-Control-Allow-Headers', 'Content-Type,Access-Token');
-  response.headers.set('Access-Control-Expose-Headers', '*');
-  return response;
-}
-
-addEventListener('fetch', (event) => {
-  event.respondWith(handleRequest(event));
-});
-```
-
-修改 `config.js` 中的 `ApiDomian` 为你的域名；
-
-Modify `ApiDomian` in `config.js` to your domain;
+Modify `config.js` 
 
 ## 说明：
 

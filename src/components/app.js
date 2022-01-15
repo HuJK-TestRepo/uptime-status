@@ -5,7 +5,7 @@ import Uptime from './uptime';
 
 const App = () => {
 
-  const { ApiKeys, SiteName } = window.Config;
+  const { ApiKeys, SiteName , SiteDescription } = window.Config;
 
   useEffect(() => {
     window.document.title = SiteName;
@@ -16,6 +16,13 @@ const App = () => {
       <Header />
       <div className="container">
         <div id="uptime">
+          <div className="item">
+            <div className="meta">
+              <div className="info">
+                <span className="name">{SiteDescription}</span>
+              </div>
+            </div>
+          </div>
           {ApiKeys.map(i => (
             <Uptime key={i} apikey={i} />
           ))}

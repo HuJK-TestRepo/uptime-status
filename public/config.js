@@ -2,10 +2,12 @@
 window.Config = {
 
   // 站点名
-  SiteName: 'JK-Network Looking glass',
+  SiteName: 'JK-Network\'s server status and looking glass',
 
   // 站点链接
   SiteUrl: '/',
+
+  SiteDescription: 'Click the following links to access the looking glass.',
 
   // UptimeRobot Api Keys
   // 支持 Monitor-Specific 和 Read-Only 两只 Api Key
